@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button slot="end" (click)="closeModal();" fill="clear">Close</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          Fecha
+        </ion-col>
+        <ion-col size="3">
+          Tipo de Pago
+        </ion-col>
+        <ion-col size="3">
+          Status
+        </ion-col>
+        <ion-col size="3">
+          Total
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div>
+      <ion-grid>
+          <ion-row *ngFor="let cliente of clientes">
+            <ion-col>
+              {{cliente.date | date: 'dd/MM/yyyy'}}
+            </ion-col>
+            <ion-col>
+              {{cliente.paymentType}}
+            </ion-col>
+            <ion-col>
+              {{cliente.status}}
+            </ion-col>
+            <ion-col>
+              {{cliente.total}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar style="color: #7264C9">
+    <ion-title>
+      Clientes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="hidden; else ShowLoading"> 
+      <div *ngFor="let client of clients; let i = index" class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card card-1" (click)="openModalFact(client.emisorRFC)">
+                <h2 style="color: #7264C9">{{client.total | currency}}</h2>
+                <p style="color: #B1B9C1">Cliente top {{i+1}}</p>
+                <h5>{{client.emisorName}}</h5>
+              </div>
+            </div> 
+          </div>
+        </div>
+  
+  </div>
+  <ng-template #ShowLoading>
+      <div>
+          <div id='loading'>
+              <div></div>
+          </div>
+        </div>
+    </ng-template>
+</ion-content>

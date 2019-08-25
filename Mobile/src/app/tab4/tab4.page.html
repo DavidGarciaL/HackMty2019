@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar style="color: #7264C9"><br>
+    <ion-title>Historial de tus cuentas</ion-title>
+    <ion-select value="0" placeholder="Selecciona una opción para ver el contenido" style="margin-right:10px" (ionChange)="change($event)">
+        <ion-select-option value="0">2019</ion-select-option>
+        <ion-select-option value="1">2018</ion-select-option>
+        <ion-select-option value="2">2017</ion-select-option>
+      </ion-select>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="hidden; else ShowLoading">
+      <ion-item color="clear">
+          <h2 style="color:#00C2A2">Clientes en Periodo</h2>
+          <h3 style="color:#04B49A">&nbsp;&nbsp;&nbsp;{{period.numCustomers}}</h3>
+          <ion-icon name="contacts" slot="end" size="large" style="color:#04B49A"></ion-icon>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label text-wrap>
+            <ion-text>
+              <h1 style="color: #526474">${{period.biggestSale}}</h1>
+            </ion-text>
+            <p>Tu venta mas grande por factura</p>
+            <ion-text>
+              <p style="color:#758390">{{period.biggestSaleName}}</p>
+            </ion-text>
+          </ion-label>
+          <ion-icon name="medal" slot="end" size="large"></ion-icon>
+        </ion-item>
+    
+          <ion-item>
+            <ion-label text-wrap>
+              <ion-text color="primary">
+                <h1 style="color: #526474">${{period.biggestCustomer}}</h1>
+              </ion-text>
+              <p>Tu cliente mas grande por factura</p>
+              <ion-text >
+                <p style="color:#758390">{{period.biggestCustomerName}}</p>
+              </ion-text>
+            </ion-label>
+            <ion-icon name="contact" slot="end" size="large"></ion-icon>
+          </ion-item><br>
+    
+          <ion-item color="clear">
+              <h2 style="color:#5861C3">Proveedores en Periodo</h2>
+              <h3 style="color:#5861C3">&nbsp;&nbsp;&nbsp;{{expenses.numCustomers}}</h3>
+              <ion-icon name="filing" slot="end" size="large" style="color:#5861C3"></ion-icon>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label text-wrap>
+                <ion-text  style="color:#526474">
+                  <h1>${{expenses.biggestSale}}</h1>
+                </ion-text>
+                <p>Tu gasto mas grande en el periodo</p>
+                <ion-text  style="color:#758390">
+                  <p>${{expenses.biggestSaleName}}</p>
+                </ion-text>
+              </ion-label>
+              <ion-icon name="return-right" slot="end" size="large"></ion-icon>
+            </ion-item>
+        
+              <ion-item>
+                <ion-label text-wrap>
+                  <ion-text style="color:#526474">
+                    <h1>${{expenses.biggestCustomer}}</h1>
+                  </ion-text>
+                  <p>Tu proveedor mas grande en el periodo</p>
+                  <ion-text style="color:#758390">
+                    <p>{{expenses.biggestCustomerName}}</p>
+                  </ion-text>
+                </ion-label>
+                <ion-icon name="filing" slot="end" size="large"></ion-icon>
+              </ion-item><br>
+        <ion-grid>
+            <ion-row>
+              <ion-col size="4">
+                  <ion-button color="clear" expand="block" (click)="openModalFact();" shape="round" size="small" style="color:#5861C3">facturas</ion-button>
+              </ion-col>
+              <ion-col size="4">
+                  <ion-button color ="clear" expand="block" (click)="openModalVenta();" shape="round" size="small" style="color:#00C2A2">Ventas</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+  </div>
+
+  <ng-template #ShowLoading>
+    <div>
+        <div id='loading'>
+            <div></div>
+        </div>
+      </div>
+  </ng-template>
+</ion-content>

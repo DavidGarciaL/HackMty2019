@@ -1,0 +1,88 @@
+
+#loading > div {
+  left: 50px;
+  width: 50px;
+  height: 100px;
+  border-radius: 0 50px 50px 0;
+  position: absolute;
+  z-index: 10;
+  margin-top: 200px;
+  margin-left: 160px;
+  perspective: 200px;
+  transform: rotateY(0deg);
+  animation: bgColor1 4s step-end infinite both, rotate 4s step-start  infinite both;
+  transform-origin:0 50%;
+}
+
+@keyframes bgColor1 {
+  0% {background: #ffd539;}
+  50% {background: #3a71f8;}
+  100% {background: #3a71f8;}
+}
+
+@keyframes rotate {
+   0%{-webkit-transform:rotate(0deg);}
+  25%{-webkit-transform:rotate(90deg);}
+  50%{-webkit-transform:rotate(180deg);}
+  75%{-webkit-transform:rotate(270deg);}
+  100%{-webkit-transform:rotate(360deg);}
+}
+
+#loading > div:after {
+  content:'';
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: -50px;
+  width: 50px;
+  height: 100px;
+  border-radius: 50px 0 0 50px;
+  background: #ccc;
+  animation: bgColor2 4s step-end infinite both;
+}
+
+@keyframes bgColor2 {
+   0%  {background: #f52d27;}
+  25% {background: #00b262;}
+  75% {background: #f52d27;}
+  100% {background: #f52d27;}
+}
+
+
+#loading > div:before {
+  content:'';
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  left: 0px;
+  width: 50px;
+  height: 100px;
+  border-radius: 0 50px 50px 0;
+  transform-origin: 0 50%;
+  transform: rotateY(0deg) rotateZ(0deg);
+  animation: flipColor 4s linear infinite both,flip 4s linear infinite both;
+}
+
+@keyframes flip {
+    0%    {-webkit-transform:rotateY(0deg);}
+  12.5% {-webkit-transform:rotateY(90deg);}
+  25%   {-webkit-transform:rotateY(180deg);}
+  37.5% {-webkit-transform:rotateY(90deg);}
+  50%   {-webkit-transform:rotateY(0deg);}
+  62.5% {-webkit-transform:rotateY(90deg);}
+  75%   {-webkit-transform:rotateY(180deg);}
+  87.5% {-webkit-transform:rotateY(90deg);}
+  100%  {-webkit-transform:rotateY(0deg);}
+}
+
+@keyframes flipColor{
+  0%    {background: #f52d27;}
+  12.5% {background: #7d0906;}
+  25%   {background: #ffd539;}
+  37.5% {background: #9f7d00;}
+  50%   {background: #00b262;}
+  62.5% {background: #00190e;}
+  75%   {background: #3a71f8;}
+  87.5% {background: #052e94;}
+  100%  {background: #f52d27;}
+}

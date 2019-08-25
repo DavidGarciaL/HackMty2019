@@ -1,0 +1,1 @@
+Scaffold-DbContext "Server=tcp:ssff-chatbot.database.windows.net,1433;Initial Catalog=chatbotdb;Persist Security Info=False;User ID=ssffadmin;Password=ssff@dm1n#19;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context ChatbotContext -f

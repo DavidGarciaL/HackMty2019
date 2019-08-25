@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button slot="end" (click)="closeModal();" fill="clear">Close</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+          Fecha
+        </ion-col>
+        <ion-col size ="3">
+          RFC
+        </ion-col>
+        <ion-col size="3">
+          Nombre
+        </ion-col>
+        <ion-col size="3">
+          Importe
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div>
+      <ion-grid>
+          <ion-row *ngFor="let factura of facturas">
+            <ion-col>
+              {{factura.date | date: 'dd/MM/yyyy'}}
+            </ion-col>
+            <ion-col>
+              {{factura.rfc}}
+            </ion-col>
+            <ion-col>
+              {{factura.name}}
+            </ion-col>
+            <ion-col>
+              {{factura.total}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

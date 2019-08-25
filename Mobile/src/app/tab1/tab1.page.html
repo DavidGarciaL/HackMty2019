@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar style="color: #7264C9"><br>
+    <ion-title>
+      Inicio
+    </ion-title>
+    <ion-select value="3" placeholder="Selecciona una opción para ver el contenido" style="margin-right:10px" (ionChange)="change($event)">
+        <ion-select-option value="3">3 Mes</ion-select-option>
+        <ion-select-option value="6">6 Meses</ion-select-option>
+        <ion-select-option value="12">12 Meses</ion-select-option>
+        <ion-select-option value="24">24 Meses</ion-select-option>
+      </ion-select>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div *ngIf="hidden; else ShowLoading">
+
+    <div class="price-card">
+        <h1 style="color:#7264C9">{{ivaToPaid | currency}}</h1>
+        <h2 style="color:#526474">Iva a pagar</h2>
+        <h5 style="color:#526474">*Esta Información es una estimación aproximada basada en los datos de tu facturación</h5>
+    </div>
+
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-title>Información de IVA Cobrado</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+          <canvas baseChart
+              [data]="ivaChargedData"
+              [labels]="ivaChargedLabel"
+              [chartType]="doughnutChartType"
+              [colors]="lineChartColorsGreen"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+          </canvas>
+          <ion-item style="color:#526474">
+              <ion-label>IVA Cobrado</ion-label>
+              <ion-badge style="color:#00DCB8" color="clear">{{chargedIva | currency}}</ion-badge>
+          </ion-item>
+          <ion-item style="color:#526474">
+              <ion-label>Total de ventas</ion-label>
+              <ion-badge style="color:526474" color="clear">{{charged | currency}}</ion-badge>
+          </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-title>Información de IVA Pagado</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          <canvas baseChart
+          [data]="ivaPaidData"
+          [labels]="ivaPaidLabels"
+          [chartType]="doughnutChartType"
+          [colors]="lineChartColorsPurple"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+      </canvas>
+      <ion-item style="color:#526474">
+          <ion-label>IVA Cobrado</ion-label>
+          <ion-badge style="color:#574BA8" color="clear">{{paidIva | currency}}</ion-badge>
+      </ion-item>
+      <ion-item style="color:#526474">
+          <ion-label>Total de ventas</ion-label>
+          <ion-badge style="color:#526474" color="clear">{{paid | currency}}</ion-badge>
+      </ion-item>
+      </ion-card-content>
+    </ion-card>
+</div>
+
+<ng-template #ShowLoading>
+    <div>
+        <div id='loading'>
+            <div></div>
+        </div>
+      </div>
+  </ng-template>
+    
+</ion-content>

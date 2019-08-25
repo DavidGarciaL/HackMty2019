@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar style="color:#7264C9">
+    <ion-title text-center>Kompass</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="b">
+    <div>
+      <img src="../../assets/icon/wallet.png" width="190px" height="190px" style="margin-left:85px"><br><br><br><br>
+
+      <ion-item style="border-radius:25px">
+        <ion-label>RFC</ion-label>
+        <ion-input [(ngModel)]="rfc" clearInput value="clear me" style="border-radius:25px; border-color: #7264C9"></ion-input>
+      </ion-item><br>
+
+      <ion-item style="border-radius:25px">
+        <ion-label>Password</ion-label>
+        <ion-input [(ngModel)]="pass" clearInput value="clear me" type="password"></ion-input>
+      </ion-item><br><br>
+
+        <ion-button (click)="login()" color="tertiary" expand="block" shape="round">Login</ion-button>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <ion-title style="color:#7264C9">HackMty 2019</ion-title>
+    </ion-toolbar>
+  </ion-footer>
